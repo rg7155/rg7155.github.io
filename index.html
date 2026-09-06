@@ -153,9 +153,7 @@ footer{padding:56px 0 80px;color:var(--tx3);font-size:13.5px;border-top:1px soli
   .hero{padding:0 0 18px}
   .hero h1{font-size:22pt} h2{font-size:15pt} h3{font-size:12pt;margin:20px 0 4px}
   .wrap{max-width:100%;padding:0}
-  details{border:1px solid #c9cdd6;background:#fff}
-  summary{color:#2c2c2c}
-  summary::before{content:"" !important}
+  details,#archive{display:none}
   a{color:#0a5f70}
   .track,.fill,.tag,.meta,.arcgrid figure{-webkit-print-color-adjust:exact;print-color-adjust:exact}
   .shots{grid-template-columns:repeat(2,1fr)}
@@ -194,8 +192,7 @@ footer{padding:56px 0 80px;color:var(--tx3);font-size:13.5px;border-top:1px soli
   </div>
   <div class="tags" style="margin-top:26px">
     <span class="tag">C++</span><span class="tag">C#</span><span class="tag">JavaScript</span>
-    <span class="tag">Unity 6</span><span class="tag">Unreal Engine 5</span><span class="tag">DirectX 12</span>
-    <span class="tag">Cocos2d-JS</span><span class="tag">IOCP</span><span class="tag">AI 개발 워크플로</span>
+    <span class="tag">Unity 6</span><span class="tag">DirectX 12</span>
   </div>
 </header>
 
@@ -233,12 +230,6 @@ footer{padding:56px 0 80px;color:var(--tx3);font-size:13.5px;border-top:1px soli
     만들기 까다로운 것을 일부러 골랐습니다. 시간 되돌리기와 대규모 군중 처리는 겉보기 완성도에는
     보탬이 안 되지만, 상태 관리와 최적화, 확장 가능한 설계를 실제로 해봐야 아는 영역입니다.
   </p>
-  <p class="muted">
-    <b class="k">개발 방식.</b> AI 페어 프로그래밍으로 구현했습니다.
-    설계는 여러 안을 놓고 근거를 따져 골랐고, 나온 결과는 실제로 돌려서 확인했습니다.
-    자세한 내용은 <a href="#ai">AI 개발 방식</a>에 정리했습니다.
-  </p>
-
   <div class="links">
     <a class="btn pri" href="https://rg7155.github.io/26UnityProject/" target="_blank" rel="noopener">▶ 브라우저에서 플레이</a>
     <a class="btn" href="https://youtu.be/YXqxWRq8dmQ" target="_blank" rel="noopener">플레이 영상 1분 40초</a>
@@ -308,21 +299,21 @@ footer{padding:56px 0 80px;color:var(--tx3);font-size:13.5px;border-top:1px soli
   <div class="bars">
     <div class="bar">
       <div class="lb"><span>Before · 적 1,000마리</span><b>79 ms</b></div>
-      <div class="track"><div class="fill slow" style="width:100%">10 FPS 미만</div></div>
+      <div class="track"><div class="fill slow" style="width:100%">프레임 90 ms · 약 11 FPS</div></div>
     </div>
     <div class="bar">
       <div class="lb"><span>After · 적 1,000마리</span><b>0.6 ms</b></div>
       <div class="track"><div class="fill fast" style="width:4%"></div></div>
-      <div class="small" style="margin-top:4px">약 200 FPS</div>
     </div>
     <div class="bar">
       <div class="lb"><span>After · 적 2,000마리</span><b>1.6 ms</b></div>
       <div class="track"><div class="fill fast" style="width:8%"></div></div>
-      <div class="small" style="margin-top:4px">약 40 FPS</div>
     </div>
   </div>
 
-  <p class="small">에디터(멀티스레드) 측정값입니다. WebGL 빌드는 Job System이 단일 스레드로 동작해 같은 수치가 나오지 않습니다.</p>
+  <p class="small">밀어내기 계산에 든 시간만 비교한 값입니다. 개선 후 실제 플레이는 위 화면처럼
+  적 1,930마리에서 38 FPS입니다. 에디터(멀티스레드) 측정값이라 WebGL 빌드는 Job System이
+  단일 스레드로 동작해 같은 수치가 나오지 않습니다.</p>
 
   <details><summary>구현 상세</summary><div class="dbody">
     <p>매 프레임 네 단계로 돕니다.</p>
@@ -373,25 +364,6 @@ Complete   메인 스레드에서 완료 대기
     </ul>
   </div></details>
 
-  <h3>대규모 군중 처리</h3>
-  <p class="muted">2,000마리를 동시에 굴리기 위해 Spatial Hashing, GPU Instancing,
-  Object Pool, Job System을 조합했습니다.</p>
-  <details><summary>각 기법이 무엇을 해결하는지</summary><div class="dbody">
-    <table>
-      <thead><tr><th>기법</th><th>하는 일</th><th>없으면</th></tr></thead>
-      <tbody>
-        <tr><td><b>Spatial Hashing</b></td><td>격자로 나눠 인접 셀만 훑음</td><td>표적을 찾을 때마다 전체 적을 검사</td></tr>
-        <tr><td><b>GPU Instancing</b></td><td>적 N마리를 타입당 Draw Call 1회</td><td>개체 수만큼 드로우 콜 발생</td></tr>
-        <tr><td><b>Object Pool</b></td><td>적·발사체 재사용</td><td>초당 수십 개 생성·파괴로 GC 압박</td></tr>
-        <tr><td><b>Job System + Burst</b></td><td>밀어내기 계산 병렬화</td><td>위 성능 항목 참고</td></tr>
-      </tbody>
-    </table>
-    <ul>
-      <li>격자 셀 크기 5. 탐색 범위에 맞춰 인접 N×N 셀만 순회하고, 거리 비교에 제곱값을 써서 제곱근 계산을 생략합니다</li>
-      <li>적은 위치 정보만 쓰고 SpriteRenderer를 제거했습니다. 렌더링은 인스턴싱 쪽이 전담합니다</li>
-      <li>풀 반납은 이중 반납을 막는 검사를 두고, 재사용 시 체력 등 원본 값을 복원합니다</li>
-    </ul>
-  </div></details>
 
   <h3 id="ai">AI 개발 방식</h3>
   <p class="lede">AI가 만든 코드는 대개 돌아갑니다. 이상하다는 걸 알아채는 게 사람 몫이었습니다</p>
@@ -406,9 +378,7 @@ Complete   메인 스레드에서 완료 대기
   버그를 고칠 때마다 증상 → 근본 원인 → 다시 알아볼 수 있는 패턴을 남기고, 새 작업 전에 그
   기록부터 찾아보게 했습니다. 되풀이되던 실수가 이 단계에서 걸러집니다.</p>
 
-  <p class="small">규약 문서는 프로젝트 규칙을 한 곳에 고정하고 Claude Code와 Codex를 얇은
-  어댑터로 연결하는 표준 구성을 따랐습니다. 공개된 하네스 구성을 가져와 이 프로젝트에 맞게
-  채운 것이라 자세히 적지 않습니다.</p>
+  <p class="small">공개된 하네스 구성을 가져와 이 프로젝트에 맞게 채운 것이라 자세히 적지 않습니다.</p>
 </section>
 
 <section class="wrap" id="work">
@@ -426,9 +396,8 @@ Complete   메인 스레드에서 완료 대기
   게임 로직과 화면 연출을 담당했고, 슬롯마다 개선 회의를 세 차례 거치며 기획·아트·QA·서버
   담당자 5~10명과 완성도를 조율했습니다.</p>
 
-  <p class="muted">이슈 대응을 맡으면서 10년 동안 쌓인 코드를 읽는 법을 배웠습니다.
-  JavaScript로 개발하면 그대로 C++ 엔진 위에서 동작하는 구조라, 문제가 생기면 JS 엔진 코드를
-  먼저 보고 필요하면 C++ 쪽까지 확인했습니다.</p>
+  <p class="muted">JavaScript로 개발하면 그대로 C++ 엔진 위에서 동작하는 구조라, 원인이
+  잡히지 않으면 엔진 코드까지 내려가 확인했습니다.</p>
 
   <h3>아틀라스 프레임 이름 중복</h3>
   <p class="lede">에러도 로그도 없이 다른 그림이 나왔습니다</p>
@@ -462,10 +431,8 @@ Complete   메인 스레드에서 완료 대기
   개발 가이드라인을 정리했고, 반년쯤 쌓이니 비슷한 이슈가 돌아왔을 때 검색으로 끝나는 일이
   생겼습니다.</p>
 
-  <p class="muted">AI 도구는 보안 문제가 없는 사내 환경에서 시작했고, 지금은 Claude Code로
-  개발 절차 자체를 정리해두고 씁니다. 팀에서 말로 통하던 규칙(공용 모듈은 임의로 수정하지
-  않는다, 다른 슬롯 코드를 함부로 참조하지 않는다)을 문서로 옮기고, 기획서 분석부터
-  리소스·사운드·심볼 등록, 신규 슬롯 세팅, 기능 구현까지 절차로 만들었습니다.
+  <p class="muted">AI 도구는 보안 문제가 없는 사내 환경에서 시작했습니다. 팀에서 말로 통하던
+  규칙(공용 모듈은 임의로 수정하지 않는다)을 문서로 옮기고 반복 작업을 절차로 만들었습니다.
   확인은 실제 게임에서 합니다. 브라우저로 슬롯을 띄워 직접 클릭하게 한 뒤 패킷과 에러
   메시지를 보게 했습니다. <em>무엇을 확인해야 통과인지는 제가 정합니다.</em></p>
 
@@ -516,10 +483,6 @@ Complete   메인 스레드에서 완료 대기
     <img src="images/desert-particle.jpg" alt="GPU 파티클 9,497개가 화면을 채운 장면과 콘솔 카운터">
     <figcaption>콘솔에 찍힌 파티클 수 9,497개 · 창 제목의 60 FPS</figcaption>
   </figure>
-
-  <h3>파이프라인 상태 변경을 줄였습니다</h3>
-  <p class="muted">DirectX 12는 파이프라인 상태 객체를 명시적으로 다뤄야 합니다.
-  같은 상태를 쓰는 오브젝트를 분류해 상태 전환 횟수를 최소화했습니다.</p>
 
   <h3>셰이더 이펙트를 비트마스크로 조합했습니다</h3>
   <p class="muted">림 라이트, 깊이 안개, 디졸브, 소드 트레일을 개별 셰이더로 만드는 대신
@@ -624,16 +587,6 @@ Complete   메인 스레드에서 완료 대기
     <span class="tag">Cocos2d-JS</span><span class="tag">JavaScript</span>
     <span class="tag">C++ (엔진 코드 분석)</span><span class="tag">Git</span><span class="tag">Notion</span>
   </div>
-
-  <h3>프로젝트 경험</h3>
-  <table>
-    <tbody>
-      <tr><td><b>C# / Unity 6</b></td><td>Job System · Burst · Spatial Hashing · GPU Instancing · Object Pool · ScriptableObject · URP</td></tr>
-      <tr><td><b>C++ / Unreal Engine 5</b></td><td>Gameplay Ability System</td></tr>
-      <tr><td><b>C++ / DirectX 12 · 9</b></td><td>HLSL · 셰이더 · 그림자 맵 · GPU 파티클 · PSO 관리</td></tr>
-      <tr><td><b>C++ / 네트워크</b></td><td>IOCP · TCP/IP · 멀티스레드 동기화(RW락 · 락 경합 개선) · Protobuf 직렬화</td></tr>
-    </tbody>
-  </table>
 
   <h3>작업 방식</h3>
   <table>
