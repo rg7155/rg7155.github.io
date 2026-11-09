@@ -3,572 +3,393 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>최경훈 — 게임 클라이언트 프로그래머</title>
-<meta name="description" content="라이브 서비스 3년 6개월. 게임 클라이언트 프로그래머 포트폴리오.">
+<title>최경훈 포트폴리오</title>
+<meta name="description" content="게임 클라이언트 프로그래머 최경훈 포트폴리오">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css">
 <style>
+/* ── 기본 ─────────────────────────────────────── */
+@page{size:A4 portrait;margin:14mm 16mm 13mm}
 :root{
-  --bg:#0c0d14; --bg2:#12141f; --card:#161927; --line:#252a3d;
-  --tx:#e8eaf2; --tx2:#9aa1b8; --tx3:#858ca6;
-  --pink:#ff4d8d; --cyan:#3fd0e8;
+  --tx:#1a1a1a; --tx2:#454545; --tx3:#7c7c7c;
+  --line:#d6d6d6; --soft:#f5f5f3;
+  --ac:#1d4d7a; --warn:#a33a2a;
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
-  margin:0; background:var(--bg); color:var(--tx);
-  font-family:"Pretendard","Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;
-  line-height:1.75; font-size:16px; -webkit-font-smoothing:antialiased;
-}
-.wrap{max-width:860px;margin:0 auto;padding:0 24px}
-a{color:var(--cyan);text-decoration:none}
+html{-webkit-print-color-adjust:exact;print-color-adjust:exact;-webkit-text-size-adjust:100%}
+body{margin:0;color:var(--tx);background:#fff;
+  font-family:"Pretendard","Pretendard Variable","Malgun Gothic","Apple SD Gothic Neo",sans-serif;
+  font-size:9.7pt;line-height:1.75;word-break:keep-all;overflow-wrap:break-word}
+a{color:var(--ac);text-decoration:none}
 a:hover{text-decoration:underline}
-h1,h2,h3{line-height:1.3;margin:0}
-section{padding:72px 0;border-top:1px solid var(--line)}
+p{margin:0 0 9px}
+h1,h2,h3{margin:0;letter-spacing:-.015em;line-height:1.3}
 
-.hero{padding:96px 0 64px}
-.hero h1{font-size:40px;letter-spacing:-.02em}
-.hero .role{color:var(--cyan);font-size:17px;margin-top:8px;font-weight:600}
-.hero p{color:var(--tx2);margin:24px 0 0;max-width:62ch}
-.links{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
-.btn{display:inline-block;padding:9px 18px;border:1px solid var(--line);
-  border-radius:999px;color:var(--tx);font-size:14px;background:var(--card)}
-.btn:hover{border-color:var(--cyan);text-decoration:none}
-.btn.pri{background:var(--pink);border-color:var(--pink);color:#fff;font-weight:600}
-.btn.pri:hover{opacity:.9}
+/* ── 쪽 ──────────────────────────────────────── */
+.page{position:relative}
+.run{display:flex;justify-content:space-between;font-size:7.8pt;color:var(--tx3);
+  border-bottom:1px solid var(--line);padding-bottom:4px;margin-bottom:14px;letter-spacing:.02em}
+.run b{color:var(--tx);font-weight:600}
 
-.eyebrow{color:var(--tx3);font-size:13px;letter-spacing:.08em;margin-bottom:10px}
-h2{font-size:28px;letter-spacing:-.01em}
-h3{font-size:19px;margin:44px 0 6px}
-.lede{color:var(--cyan);font-size:15px;margin:0 0 18px;font-weight:600}
-p{margin:14px 0}
-.muted{color:var(--tx2)}
-.small{font-size:14px;color:var(--tx3)}
-b.k{color:var(--tx)}
-em{color:var(--tx);font-style:normal;font-weight:600}
+/* 프로젝트 머리 */
+.head h2{font-size:17pt;font-weight:700}
+.head .meta{color:var(--tx2);font-size:9pt;margin-top:2px}
+.head .meta + .meta{margin-top:0}
+h3{font-size:10.6pt;font-weight:700;margin:16px 0 6px}
+h3:first-child{margin-top:0}
 
-.star{margin:20px 0}
-.st{display:grid;grid-template-columns:58px 1fr;gap:18px;padding:15px 0;border-top:1px solid var(--line)}
-.st:first-child{border-top:none;padding-top:4px}
-.st .lb{font-size:12px;font-weight:700;color:var(--cyan);letter-spacing:.06em;padding-top:5px}
-.st .bd{margin:0;color:var(--tx2)}
-.st .bd > :first-child{margin-top:0}
-.st .bd > :last-child{margin-bottom:0}
-@media(max-width:560px){
-  .st{grid-template-columns:1fr;gap:6px}
-  .st .lb{padding-top:0}
-  .shots.q4{grid-template-columns:repeat(2,1fr)}
+/* ── 그림 ─────────────────────────────────────── */
+figure{margin:10px 0 12px;break-inside:avoid}
+figcaption{font-size:8.1pt;color:var(--tx3);margin-top:4px;line-height:1.5}
+figcaption .n{color:var(--tx);font-weight:600;margin-right:2px}
+.shot{position:relative;margin:0}
+.shot img{display:block;width:100%;height:100%;object-fit:cover;border:1px solid var(--line);background:var(--soft)}
+.shot .no{position:absolute;left:5px;top:5px;min-width:17px;height:17px;padding:0 4px;border-radius:9px;
+  background:var(--tx);color:#fff;font-size:8pt;font-weight:600;line-height:17px;text-align:center}
+/* 높이가 같은 가로 줄: 각 칸 flex 값 = 그림 가로/세로 비 */
+.jrow{display:flex;gap:6px;align-items:flex-start}
+.jrow > *{min-width:0}
+.jrow .shot img{height:auto}
+/* 비어 있는 그림 자리 */
+.ph{display:flex;align-items:center;justify-content:center;text-align:center;
+  border:1px dashed #a9a9a9;background:repeating-linear-gradient(135deg,#fafafa 0 6px,#f3f3f3 6px 12px);
+  color:var(--tx3);font-size:8.2pt;line-height:1.5;padding:8px}
+.ph b{display:block;color:var(--tx2);font-weight:600}
+
+.figside{display:flex;gap:12px;align-items:flex-end}
+.figside figcaption{flex:1;margin:0;padding-bottom:2px}
+svg.dia{display:block;width:100%;height:auto}
+svg.dia text{font-family:"Pretendard","Malgun Gothic",sans-serif;fill:var(--tx)}
+
+/* ── 목록·표 ──────────────────────────────────── */
+ol.steps{list-style:none;margin:4px 0 8px;padding:0}
+ol.steps li{display:flex;gap:6px;margin:2px 0}
+ol.steps li > span:first-child{flex:none;font-weight:600}
+ul.dash{list-style:none;margin:2px 0 10px;padding:0}
+ul.dash li{position:relative;padding-left:14px;margin:3px 0}
+ul.dash li::before{content:"";position:absolute;left:2px;top:.85em;width:6px;border-top:1.5px solid var(--tx3)}
+ul.dash b{font-weight:600;margin-right:3px}
+ul.notes{list-style:none;margin:2px 0 0;padding:0}
+ul.notes li{display:flex;gap:7px;margin:3px 0}
+ul.notes li > span:first-child{flex:none;width:1.2em;font-weight:600;color:var(--tx)}
+table{border-collapse:collapse;width:100%;font-size:8.6pt;line-height:1.5}
+th,td{border-bottom:1px solid var(--line);padding:5px 6px;text-align:left;vertical-align:top}
+thead th{border-bottom:1.5px solid var(--tx);font-weight:600;color:var(--tx2);font-size:8.1pt}
+td.nw,th.nw{white-space:nowrap}
+td.lk a{white-space:nowrap}
+table.stack th{width:7.5em;font-weight:600;color:var(--tx2);border-bottom:1px solid var(--line)}
+
+/* ── 1쪽 ─────────────────────────────────────── */
+.cover{padding-top:34mm}
+.cover h1{font-size:30pt;font-weight:700;letter-spacing:-.02em}
+.cover .role{font-size:11pt;color:var(--tx2);margin-top:4px}
+.cover .lead{font-size:14.5pt;font-weight:600;line-height:1.5;margin:26mm 0 8mm;max-width:172mm;letter-spacing:-.01em}
+.cover .intro{max-width:150mm;font-size:10pt}
+.cover .contact{margin-top:10mm;font-size:9pt;color:var(--tx2);display:flex;flex-wrap:wrap;gap:4px 16px}
+.toc{margin-top:30mm;max-width:150mm}
+.toc-t{font-size:10pt;font-weight:700;padding-bottom:5px;border-bottom:1.5px solid var(--tx)}
+.toc .grp{display:flex;gap:16px;padding:9px 0;border-bottom:1px solid var(--line)}
+.toc .grp > span{flex:none;width:4.5em;color:var(--tx3);font-size:8.6pt;padding-top:1px}
+.toc ul{list-style:none;margin:0;padding:0;flex:1}
+.toc li{display:flex;justify-content:space-between;gap:12px}
+.toc li a{color:var(--tx)}
+.toc li i{font-style:normal;color:var(--tx3);font-variant-numeric:tabular-nums}
+
+/* ── 웹 전용 ──────────────────────────────────── */
+.play{display:inline-block;margin-top:6px;font-size:9pt;font-weight:600;color:#fff;background:var(--ac);
+  padding:3px 10px;border-radius:3px}
+.play:hover{text-decoration:none;background:#163c60}
+details.more{margin:12px 0 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+details.more summary{cursor:pointer;padding:7px 0;font-size:9pt;font-weight:600;color:var(--ac);list-style:none}
+details.more summary::-webkit-details-marker{display:none}
+details.more summary::before{content:"+ ";font-weight:400}
+details.more[open] summary::before{content:"− "}
+.vids{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px;padding:4px 0 12px}
+.vids div{font-size:8.4pt;color:var(--tx2)}
+iframe.yt{display:block;width:100%;aspect-ratio:16/9;border:0;background:#111}
+.vids iframe{display:block;width:100%;aspect-ratio:16/9;border:0;background:#111;margin-bottom:3px}
+
+/* ── 화면 ─────────────────────────────────────── */
+@media screen{
+  body{background:#e8e8e6;padding:28px 0 40px}
+  .page{width:210mm;max-width:100%;margin:0 auto 22px;background:#fff;padding:14mm 16mm 16mm;
+    box-shadow:0 1px 2px rgba(0,0,0,.08)}
+}
+@media screen and (max-width:820px){
+  body{padding:0;background:#fff;font-size:10pt}
+  .page{width:auto;margin:0;padding:28px 16px 34px;box-shadow:none;border-bottom:8px solid #eee}
+  .cover{padding-top:12px}
+  .cover .lead{margin:28px 0 16px;font-size:13pt}
+  .toc{margin-top:28px}
+  .jrow{flex-wrap:wrap}
+  .jrow.keep{flex-wrap:nowrap}
+  .side{flex-direction:column}
+  .side > *,.figside > *{width:100% !important}
+  .figside{flex-direction:column;align-items:stretch}
+  .figside br{display:none}
+  .figside figcaption .n{margin-left:8px}
+  .figside figcaption .n:first-child{margin-left:0}
+  .scroll-x{overflow-x:auto}
+  .scroll-x table{min-width:640px}
 }
 
-table{width:100%;border-collapse:collapse;margin:18px 0;font-size:14.5px;display:block;overflow-x:auto}
-th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
-th{color:var(--tx3);font-weight:600;font-size:13px;white-space:nowrap}
-td strong{color:var(--pink)}
-
-.meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1px;
-  background:var(--line);border:1px solid var(--line);border-radius:10px;overflow:hidden;margin:22px 0}
-.meta div{background:var(--card);padding:14px 16px}
-.meta dt{color:var(--tx3);font-size:12px;margin-bottom:4px}
-.meta dd{margin:0;font-size:14.5px}
-
-.shots{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin:26px 0}
-.shot{background:var(--card);border:1px solid var(--line);border-radius:10px;overflow:hidden;margin:0}
-.shot img{width:100%;display:block}
-.shot figcaption{padding:10px 12px;font-size:13px;color:var(--tx2);border-top:1px solid var(--line)}
-/* 4장을 한 줄로. 세로 화면 4장을 2x2로 놓으면 스샷이 섹션을 잡아먹는다 */
-.shots.q4{grid-template-columns:repeat(4,1fr);gap:10px}
-.shots.q4 img{aspect-ratio:9/16;object-fit:cover;object-position:top}
-.shots.q4 figcaption{padding:8px 9px;font-size:12px;line-height:1.5}
-
-details{background:var(--card);border:1px solid var(--line);border-radius:10px;margin:22px 0}
-summary{padding:13px 18px;cursor:pointer;font-size:14px;color:var(--tx2);font-weight:600;list-style:none}
-summary::-webkit-details-marker{display:none}
-summary::before{content:"\25B8  ";color:var(--cyan)}
-details[open] summary::before{content:"\25BE  "}
-.dbody{padding:2px 18px 18px;font-size:14.5px;color:var(--tx2)}
-.dbody ul{padding-left:18px;margin:10px 0}
-.dbody li{margin:7px 0}
-.dbody table{font-size:13.5px}
-code{background:var(--bg2);padding:2px 6px;border-radius:4px;font-size:13px;color:var(--cyan)}
-pre{background:var(--bg2);border:1px solid var(--line);border-radius:8px;padding:14px 16px;
-  overflow-x:auto;font-size:13px;color:var(--tx2);line-height:1.6}
-
-.bars{margin:24px 0}
-.bar{margin:16px 0}
-.bar .lb{display:flex;justify-content:space-between;font-size:13.5px;margin-bottom:5px}
-.bar .lb b{color:var(--tx)}
-.track{height:22px;background:var(--bg2);border-radius:4px;overflow:hidden;border:1px solid var(--line)}
-.fill{height:100%;display:flex;align-items:center;padding-left:9px;font-size:12px;
-  font-weight:700;color:#fff;white-space:nowrap}
-.fill.slow{background:linear-gradient(90deg,#8a2b4a,var(--pink))}
-.fill.fast{background:linear-gradient(90deg,#1f6f7d,var(--cyan))}
-
-.tags{display:flex;flex-wrap:wrap;gap:7px;margin:12px 0}
-.tag{background:var(--card);border:1px solid var(--line);border-radius:6px;
-  padding:5px 11px;font-size:13px;color:var(--tx2)}
-
-.proj{display:grid;grid-template-columns:minmax(0,290px) 1fr;gap:26px;align-items:start;
-  margin:34px 0 0;padding-top:30px;border-top:1px solid var(--line)}
-.proj:first-of-type{border-top:none;padding-top:6px;margin-top:20px}
-.proj img{width:100%;display:block;border:1px solid var(--line);border-radius:10px}
-.proj h3{margin:0 0 4px}
-.proj p{margin:12px 0}
-.proj .links{margin-top:16px}
-@media(max-width:640px){ .proj{grid-template-columns:1fr;gap:16px} }
-
-.arcgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px;margin:14px 0}
-.arcgrid figure{margin:0;background:var(--bg2);border:1px solid var(--line);border-radius:8px;overflow:hidden}
-.arcgrid img{width:100%;display:block;aspect-ratio:16/9;object-fit:cover}
-.arcgrid figcaption{padding:9px 11px;font-size:12.5px;line-height:1.55;color:var(--tx3)}
-.arcgrid figcaption b{color:var(--tx2);font-size:13px}
-
-footer{padding:56px 0 80px;color:var(--tx3);font-size:13.5px;border-top:1px solid var(--line)}
-
-.topnav{position:sticky;top:0;z-index:50;background:rgba(12,13,20,.9);
-  backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-.topnav .wrap{display:flex;align-items:center;gap:20px;height:52px;
-  overflow-x:auto;white-space:nowrap;scrollbar-width:none}
-.topnav .wrap::-webkit-scrollbar{display:none}
-.topnav a{font-size:13.5px;color:var(--tx3)}
-.topnav a:hover{color:var(--tx);text-decoration:none}
-.topnav .me{color:var(--tx);font-weight:700}
-[id]{scroll-margin-top:60px}
-
-@media(max-width:640px){
-  .hero{padding:64px 0 40px} .hero h1{font-size:32px}
-  section{padding:56px 0} h2{font-size:24px}
-  .topnav .wrap{gap:16px}
-}
-
+/* ── 인쇄 ─────────────────────────────────────── */
 @media print{
-  :root{
-    --bg:#fff; --bg2:#f5f6f8; --card:#fff; --line:#c9cdd6;
-    --tx:#111; --tx2:#2c2c2c; --tx3:#5c6270;
-    --pink:#c2185b; --cyan:#0a5f70;
-  }
-  body{background:#fff;color:#111;font-size:10.5pt;line-height:1.6}
-  .topnav{display:none !important}
-  .links{gap:4px 14px;margin:10px 0}
-  .btn{background:none;border:0;padding:0;color:#0a5f70;font-size:9.5pt}
-  .links a[href^="http"]::after{content:" " attr(href);color:#5c6270;font-size:8pt;word-break:break-all}
-  section{padding:20px 0;border-top:1px solid #c9cdd6}
-  .hero{padding:0 0 18px}
-  .hero h1{font-size:22pt} h2{font-size:15pt} h3{font-size:12pt;margin:20px 0 4px}
-  .wrap{max-width:100%;padding:0}
-  details,#archive{display:none}
-  a{color:#0a5f70}
-  .track,.fill,.tag,.meta,.arcgrid figure{-webkit-print-color-adjust:exact;print-color-adjust:exact}
-  .shots{grid-template-columns:repeat(2,1fr)}
-  .arcgrid{grid-template-columns:repeat(4,1fr)}
-  figure,details,.st,.proj,.bar{break-inside:avoid}
-  h2,h3{break-after:avoid}
-  img{max-width:100%}
+  body{font-size:9.5pt}
+  .page{break-after:page}
+  .page:last-child{break-after:auto}
+  .web-only{display:none !important}
+  a{color:var(--tx)}
+  .cover .contact a,.lk a{color:var(--ac)}
 }
+@media screen{.print-only{display:none}}
 </style>
 </head>
 <body>
 
-<nav class="topnav">
-  <div class="wrap">
-    <a class="me" href="#top">최경훈</a>
-    <a href="#rewind">Rewind Survivors</a>
-    <a href="#work">실무</a>
-    <a href="#desert">의뢰인:사막</a>
-    <a href="#others">서버·언리얼</a>
-  </div>
-</nav>
-
-<header class="wrap hero" id="top">
+<!-- ═════════ 1쪽 머리 ═════════ -->
+<section class="page cover" id="p1">
   <h1>최경훈</h1>
-  <div class="role">게임 클라이언트 프로그래머 · 경력 3년 6개월</div>
-  <p>
-    산업기능요원으로 입사해 소집해제 후에도 남아, 3년 6개월간 슬롯 게임을 라이브로 서비스했습니다.
-    처음 보는 엔진이었고, 원인이 잡히지 않을 때는 엔진 코드까지 내려가 찾았습니다.
-    퇴근 후에는 개인 프로젝트를 만들며 실제로 돌아가는 상태까지 끌고 갑니다.
-  </p>
-  <div class="links">
-    <a class="btn pri" href="https://rg7155.github.io/26UnityProject/" target="_blank" rel="noopener">▶ Rewind Survivors 플레이</a>
-    <a class="btn" href="https://github.com/rg7155" target="_blank" rel="noopener">GitHub</a>
-    <a class="btn" href="mailto:kh7155@gmail.com">kh7155@gmail.com</a>
-  </div>
-  <div class="tags" style="margin-top:26px">
-    <span class="tag">C++</span><span class="tag">C#</span><span class="tag">JavaScript</span>
-    <span class="tag">Unity 6</span><span class="tag">DirectX 12</span>
-  </div>
-</header>
+  <div class="role">게임 클라이언트 프로그래머</div>
 
-<section class="wrap" id="rewind">
-  <div class="eyebrow">개인 프로젝트 · 2026</div>
-  <h2>Rewind Survivors</h2>
-  <p class="lede">시간을 되돌려 위기를 벗어나는 탑다운 2D 서바이버</p>
+  <p class="lead">라이브 서비스에서 팀과 협업하며 문제를 해결하고, AI로 개발 방식을 바꿔 왔습니다.</p>
 
-  <dl class="meta">
-    <div><dt>기간</dt><dd>2026.04 ~ 2026.09 · 5개월 · 1인</dd></div>
-    <div><dt>환경</dt><dd>Unity 6 · URP · C#</dd></div>
-    <div><dt>배포</dt><dd>WebGL · GitHub Pages</dd></div>
-  </dl>
+  <p class="intro">플레이링스에서 2023년 3월(산업기능요원 입사)부터 소셜 카지노 슬롯을 개발하고 있습니다. 기획, 아트, 서버 담당자와 맞춰 가며 신규 슬롯 약 20종을 만들었습니다. 지금은 AI로 사전 검증과 구현을 하고, 퇴근 후에는 같은 방식으로 Unity 게임을 만듭니다.</p>
 
-  <div class="shots q4">
-    <figure class="shot">
-      <img src="images/rw-title.jpg" alt="타이틀 화면">
-      <figcaption>타이틀</figcaption>
-    </figure>
-    <figure class="shot">
-      <img src="images/rw-opening.jpg" alt="오프닝 시퀀스">
-      <figcaption>오프닝 · 5페이지</figcaption>
-    </figure>
-    <figure class="shot">
-      <img src="images/rw-crowd.jpg" alt="적 1,930마리가 몰려든 전투 화면">
-      <figcaption>적 1,930마리 · 38 FPS</figcaption>
-    </figure>
-    <figure class="shot">
-      <img src="images/rw-boss.jpg" alt="보스 MONOLITH 전투 화면">
-      <figcaption>보스 MONOLITH</figcaption>
-    </figure>
+  <div class="contact">
+    <a href="mailto:kh7155@gmail.com">kh7155@gmail.com</a>
+    <a href="https://github.com/rg7155">github.com/rg7155</a>
+    <span>웹 포트폴리오 <a href="https://rg7155.github.io/">rg7155.github.io</a></span>
+    <a href="https://rg7155.github.io/26UnityProject/">▶ Rewind Survivors 플레이</a>
   </div>
 
-  <p class="muted">
-    만들기 까다로운 것을 일부러 골랐습니다. 시간 되돌리기와 대규모 군중 처리는 겉보기 완성도에는
-    보탬이 안 되지만, 상태 관리와 최적화, 확장 가능한 설계를 실제로 해봐야 아는 영역입니다.
-  </p>
-  <div class="links">
-    <a class="btn pri" href="https://rg7155.github.io/26UnityProject/" target="_blank" rel="noopener">▶ 브라우저에서 플레이</a>
-    <a class="btn" href="https://youtu.be/YXqxWRq8dmQ" target="_blank" rel="noopener">플레이 영상 1분 40초</a>
-    <a class="btn" href="https://github.com/rg7155/26UnityProject" target="_blank" rel="noopener">GitHub</a>
-  </div>
-
-  <h3>시간 되돌리기</h3>
-  <p class="lede">풀에서 꺼낸 적을 어떻게 구분할 것인가</p>
-
-  <div class="star">
-    <div class="st"><span class="lb">상황</span><div class="bd">
-      <p>최근 5초를 되감으려면 매 프레임 상태를 기록했다가 되돌려야 합니다.
-      그런데 적은 수가 많아 오브젝트 풀로 재사용합니다.</p>
-    </div></div>
-    <div class="st"><span class="lb">문제</span><div class="bd">
-      <p>풀에서 꺼낸 적은 5초 전의 그 적과 같은 객체이지만 다른 개체입니다.
-      참조로는 구분할 수 없고, 스냅샷을 그대로 복원하면 이미 죽은 적의 상태가
-      엉뚱한 적에게 덮어씌워집니다.</p>
-    </div></div>
-    <div class="st"><span class="lb">해결</span><div class="bd">
-      <p>개체마다 고유 ID를 부여하고, 되감기 시점에 스냅샷의 ID와 현재 살아 있는 ID를
-      비교해 세 가지로 나눠 처리했습니다.</p>
-      <table>
-        <thead><tr><th>ID 비교</th><th>의미</th><th>처리</th></tr></thead>
-        <tbody>
-          <tr><td>양쪽에 다 있음</td><td>계속 살아 있던 적</td><td>상태만 복원</td></tr>
-          <tr><td>스냅샷에만 있음</td><td>그 사이에 죽은 적</td><td>풀에서 꺼내 부활</td></tr>
-          <tr><td>현재에만 있음</td><td>되감기 구간 중 스폰</td><td>풀로 반환</td></tr>
-        </tbody>
-      </table>
-      <p>부활시킬 때 풀에서 나온 오브젝트를 이미 다른 적이 점유한 경우가 있습니다.
-      이때는 새 ID를 발급하는 일반 경로 대신 스냅샷의 ID를 강제로 주입하는 별도 경로를 씁니다.</p>
-    </div></div>
-    <div class="st"><span class="lb">결과</span><div class="bd">
-      <p>적 상태까지 포함해 되감기가 항상 같은 결과로 재현됩니다.
-      이 구조를 그대로 확장해 보스의 패턴 순서와 남은 체력까지 되감기에 넣을 수 있었습니다.</p>
-    </div></div>
-  </div>
-
-  <details><summary>구현 상세</summary><div class="dbody">
-    <ul>
-      <li><b>Circular Buffer.</b> 고정 크기 배열 100칸, 5초 × 20fps(0.05초 간격). 꽉 차면 가장 오래된 슬롯을 덮어써서 <b>메모리가 고정</b>됩니다</li>
-      <li><b>스냅샷 구성.</b> 플레이어 / 적 배열 / 웨이브 / 보스. 보스는 프레임당 1개</li>
-      <li>되감기 중에는 게임 상태를 <code>Rewinding</code>으로 전환해 모든 <code>Update</code>를 차단합니다</li>
-      <li>능동 되돌리기는 Shift(쿨타임 30초), 사망 시 1회 자동 발동</li>
-    </ul>
-  </div></details>
-
-  <h3>성능 최적화</h3>
-
-  <div class="star">
-    <div class="st"><span class="lb">상황</span><div class="bd">
-      <p>적이 1,000마리를 넘어가면 프레임이 무너졌습니다.</p>
-    </div></div>
-    <div class="st"><span class="lb">문제</span><div class="bd">
-      <p>어디가 느린지 추측하는 대신 Profiler를 켰습니다. 적끼리 서로 밀어내는 계산이
-      <strong>PlayerLoop 90ms 중 79ms</strong>를 쓰고 있었습니다. 전체의 88%였고,
-      나머지를 아무리 손봐도 의미가 없는 상태였습니다.</p>
-    </div></div>
-    <div class="st"><span class="lb">해결</span><div class="bd">
-      <p>이 계산만 떼어내 워커 스레드로 분산했습니다. Unity Job System의
-      <code>IJobParallelFor</code>로 적 1,000개 작업을 여러 스레드에 나누고,
-      Burst로 네이티브 코드까지 컴파일했습니다.</p>
-    </div></div>
-  </div>
-
-  <div class="bars">
-    <div class="bar">
-      <div class="lb"><span>Before · 적 1,000마리</span><b>79 ms</b></div>
-      <div class="track"><div class="fill slow" style="width:100%">프레임 90 ms · 약 11 FPS</div></div>
+  <nav class="toc">
+    <div class="toc-t">목차</div>
+    <div class="grp"><span>자세히</span>
+      <ul>
+        <li><a href="#p2">실무</a><i>2</i></li>
+        <li><a href="#p3">Rewind Survivors</a><i>3</i></li>
+        <li><a href="#p4">딱지왕</a><i>4</i></li>
+        <li><a href="#p5">의뢰인:사막</a><i>5</i></li>
+      </ul>
     </div>
-    <div class="bar">
-      <div class="lb"><span>After · 적 1,000마리</span><b>0.6 ms</b></div>
-      <div class="track"><div class="fill fast" style="width:4%"></div></div>
+    <div class="grp"><span>간단히</span>
+      <ul>
+        <li><a href="#p6">그 외 프로젝트와 기술 스택</a><i>6</i></li>
+      </ul>
     </div>
-    <div class="bar">
-      <div class="lb"><span>After · 적 2,000마리</span><b>1.6 ms</b></div>
-      <div class="track"><div class="fill fast" style="width:8%"></div></div>
-    </div>
-  </div>
-
-  <p class="small">밀어내기 계산에 든 시간만 비교한 값입니다. 개선 후 실제 플레이는 위 화면처럼
-  적 1,930마리에서 38 FPS입니다. 에디터(멀티스레드) 측정값이라 WebGL 빌드는 Job System이
-  단일 스레드로 동작해 같은 수치가 나오지 않습니다.</p>
-
-  <details><summary>구현 상세</summary><div class="dbody">
-    <p>매 프레임 네 단계로 돕니다.</p>
-<pre>Gather     레지스트리의 적 위치·ID를 NativeArray로 복사
-Schedule   워커 스레드에 작업 분산
-Complete   메인 스레드에서 완료 대기
-조회       이동 계산에서 결과를 ID로 꺼내 씀</pre>
-    <table>
-      <thead><tr><th></th><th>1,000마리</th><th>2,000마리</th></tr></thead>
-      <tbody>
-        <tr><td>Gather</td><td>0.3ms</td><td>0.5ms</td></tr>
-        <tr><td>Schedule</td><td>0.3ms</td><td>1.1ms</td></tr>
-      </tbody>
-    </table>
-    <p><b>설계 결정</b></p>
-    <ul>
-      <li>기존 공간 분할 구조를 건드리지 않았습니다. 되감기와 폭발형 무기가 그 구조에 의존하고 있어서, 수정하면 영향 범위를 알 수 없었습니다. 대신 Job 전용 파이프라인을 따로 만들었습니다</li>
-      <li>작업을 예약한 직후 바로 완료를 기다립니다. 비동기로 두면 결과가 다음 프레임에 오는데, 되감기가 프레임 단위로 스냅샷을 뜨기 때문에 재현이 깨집니다</li>
-      <li>되감기 중에는 Job을 돌리지 않고 밀어내기를 0으로 폴백시킵니다</li>
-      <li>NativeArray는 매 프레임 할당하지 않고 용량이 부족할 때만 2배로 재할당해 GC 부담을 없앴습니다</li>
-    </ul>
-  </div></details>
-
-  <h3 id="ai">AI 개발 방식</h3>
-  <p class="lede">AI가 만든 코드는 대개 돌아갑니다. 이상하다는 걸 알아채는 게 사람 몫이었습니다</p>
-
-  <p class="muted"><b class="k">돌려보기 전에는 모릅니다.</b>
-  적이 화면 원점 방향으로 미묘하게 쏠리는 걸 플레이하다 발견했습니다. 컴파일도 되고, 크래시도
-  없고, 에러 로그도 없었습니다. 어떤 조건에서 심해지는지와 의심 가는 지점을 좁혀서 넘긴 뒤에야
-  원인이 나왔습니다. 병렬 계산이 배열의 활성 개수가 아니라 <em>전체 용량</em>을 순회하고 있었고,
-  쓰지 않는 슬롯의 기본값 (0,0)이 유령 이웃처럼 밀어내는 힘을 만들고 있었습니다.</p>
-
-  <p class="small">공개된 하네스 구성을 가져와 이 프로젝트에 맞게 채운 것이라 자세히 적지 않습니다.</p>
+  </nav>
 </section>
 
-<section class="wrap" id="work">
-  <div class="eyebrow">실무 · 2023 ~ 재직 중</div>
-  <h2>소셜 카지노 슬롯 라이브 서비스</h2>
-  <p class="lede">10년 된 코드베이스에서 신규 콘텐츠 개발과 라이브 이슈 대응</p>
+<!-- ═════════ 2쪽 실무 ═════════ -->
+<section class="page" id="p2">
+  <div class="run"><span><b>2</b> &nbsp;실무</span><span>최경훈 포트폴리오</span></div>
 
-  <dl class="meta">
-    <div><dt>기간</dt><dd>2023.03 ~ 재직 중 · 3년 6개월</dd></div>
-    <div><dt>환경</dt><dd>Cocos2d-JS · JavaScript · C++ (엔진 코드 분석)</dd></div>
-    <div><dt>담당</dt><dd>신규 슬롯 클라이언트 · 라이브 대응</dd></div>
-  </dl>
-
-  <p class="muted">신규 슬롯 콘텐츠를 약 20종 개발했습니다. 슬롯 하나당 약 8주 주기로
-  게임 로직과 화면 연출을 담당했고, 슬롯마다 개선 회의를 세 차례 거치며 기획·아트·QA·서버
-  담당자 5~10명과 완성도를 조율했습니다.</p>
-
-  <p class="muted">학생 때는 개발자끼리만 이야기하면 됐는데, 여기서는 기획·아트·QA와 말이
-  통해야 일이 굴러갔습니다. 처음에는 그게 잘 안 됐습니다. 회의를 거듭하면서 나아졌고, 지금은
-  이 조율이 슬롯 완성도를 가르는 일이라고 생각합니다.</p>
-
-  <p class="muted">JavaScript로 개발하면 그대로 C++ 엔진 위에서 동작하는 구조라, 원인이
-  잡히지 않으면 엔진 코드까지 내려가 확인했습니다.</p>
-
-  <h3>아틀라스 프레임 이름 중복</h3>
-  <p class="lede">에러도 로그도 없이 다른 그림이 나왔습니다</p>
-
-  <div class="star">
-    <div class="st"><span class="lb">상황</span><div class="bd">
-      <p>연출 담당자가 툴에서는 정상인데 게임에서만 그림이 다르게 나온다고 제보했습니다.
-      콘솔에 에러가 없고 리소스도 전부 정상으로 로드돼서 남는 단서가 없었습니다.</p>
-    </div></div>
-    <div class="st"><span class="lb">원인</span><div class="bd">
-      <p>엔진 코드를 따라갔습니다. 아틀라스에 들어 있는 프레임 이름과 <em>같은 이름의 낱장
-      이미지</em>가 함께 올라가 있었고, 엔진은 프레임을 아틀라스 단위가 아니라 이름 하나로
-      전역 사전에 저장하고 있었습니다. 이름이 겹치면 먼저 등록된 쪽을 유지하고 아무 로그도
-      남기지 않습니다.</p>
-      <p>툴에서 정상이던 이유도 여기 있었습니다. 툴은 작업자가 연 폴더만 읽으므로 애초에
-      충돌이 일어나지 않습니다. 툴 검증으로는 잡을 수 없는 구조였습니다.</p>
-    </div></div>
-    <div class="st"><span class="lb">배운 점</span><div class="bd">
-      <p>원인을 찾고도 공유하지 않았습니다. 나중에 다른 팀원이 같은 증상으로 막혔는데,
-      공유돼 있었다면 몇 분에 끝났을 일이었습니다.</p>
-      <p>그리고 같은 문제가 반복되면 사람 주의가 아니라 검사로 막아야 한다고 판단해,
-      이름 중복을 찾는 스크립트를 만들었습니다.</p>
-    </div></div>
+  <div class="head">
+    <h2>플레이링스</h2>
+    <div class="meta">클라이언트 프로그래머 · 2023.03 ~ 재직 중</div>
+    <div class="meta">소셜 카지노 슬롯 라이브 서비스 · Cocos2d-JS · 신규 슬롯 약 20종</div>
+    <div class="meta">현재 팀은 Cocos Creator로 엔진 이전 중</div>
   </div>
 
+  <h3 style="margin-top:18px">슬롯 개발 방식</h3>
+  <p>프로젝트 규칙과 슬롯 도메인 지식을 문서로 쌓아 두고, 코드를 쓰기 전에 AI가 기획서와 아트 리소스, 서버 코드를 먼저 대조하게 합니다. AI가 모르는 새 기획 요소는 제가 판단해서 문서에 더합니다. 슬롯 하나는 보통 8주에 만듭니다.</p>
+  <ul class="dash">
+    <li><b>1~4주:</b> 사전 검증으로 리소스 오타, 공용 모듈과 맞지 않는 리소스, 빠진 연출을 거른 뒤 개발. 코드는 대부분 AI가 작성</li>
+    <li><b>5~8주:</b> 기획·아트·QA·서버 5~10명이 모이는 개선 회의 약 3회. 연출과 아트 피드백을 반영하고, 룰이 바뀌면 개발 가능 여부를 확인. 이후 QA를 거쳐 라이브 출시</li>
+  </ul>
+  <p>신규 슬롯과 함께, 오래된 슬롯의 룰을 조금 바꾸고 코드를 공용 모듈로 옮기는 리워크도 맡습니다.</p>
 
-  <h3>개발 방식</h3>
-
-  <p class="muted">팀에 문서가 거의 없었습니다. 이슈가 생기면 예전에 비슷한 걸 겪었을 사람을
-  찾아 물어봐야 했습니다. 개발자 6명 팀에 원래 없던 습관이라 처음엔 혼자 노션에 이슈 히스토리와
-  개발 가이드라인을 정리했고, 반년쯤 쌓이니 비슷한 이슈가 돌아왔을 때 검색으로 끝나는 일이
-  생겼습니다.</p>
-
-  <p class="muted">AI 도구는 보안 문제가 없는 사내 환경에서 시작했습니다. 팀에서 말로 통하던
-  규칙(공용 모듈은 임의로 수정하지 않는다)을 문서로 옮기고 반복 작업을 절차로 만들었습니다.
-  확인은 실제 게임에서 합니다. 브라우저로 슬롯을 띄워 직접 클릭하게 한 뒤 패킷과 에러
-  메시지를 보게 했습니다. <em>무엇을 확인해야 통과인지는 제가 정합니다.</em></p>
-
-  <p class="small">회사 코드와 게임 화면은 보안상 공개하지 않습니다.</p>
+  <h3>이슈 해결: 웹에서만 다른 이미지가 나오던 문제</h3>
+  <p>에러도 로그도 없던 팀 이슈였고, 팀에서 가장 먼저 원인을 찾아 공유했습니다.</p>
+  <ul class="dash">
+    <li>웹에서만 엉뚱한 이미지가 나옴. 에러도 로그도 없음</li>
+    <li>이름이 겹치면 먼저 등록된 이미지를 쓰는 엔진 동작을 의심했지만, 웹 리소스에는 중복이 없음</li>
+    <li>엔진에 로그를 넣어 실제로 불러오는 리소스를 출력</li>
+    <li>공통 시스템 코드가 웹에서 모바일 리소스까지 불러오고 있었고, 중복은 그쪽에 있었음</li>
+  </ul>
 </section>
-<section class="wrap" id="desert">
-  <div class="eyebrow">졸업 작품 · 2022</div>
-  <h2>의뢰인:사막</h2>
-  <p class="lede">엔진 없이, 상용 엔진이 대신 해주던 것을 직접 구현</p>
 
-  <dl class="meta">
-    <div><dt>기간</dt><dd>2022.01 ~ 2022.07 · 2인</dd></div>
-    <div><dt>환경</dt><dd>DirectX 12 · C++ · HLSL</dd></div>
-    <div><dt>담당</dt><dd>셰이더 · 충돌 · 최적화 · UI</dd></div>
-  </dl>
+<!-- ═════════ 3쪽 Rewind Survivors ═════════ -->
+<section class="page" id="p3">
+  <div class="run"><span><b>3</b> &nbsp;개인 프로젝트</span><span>최경훈 포트폴리오</span></div>
 
-  <div class="shots">
-    <figure class="shot">
-      <img src="images/desert-play.jpg" alt="의뢰인:사막 플레이 화면, 신전 지형과 그림자">
-      <figcaption>정적 지형과 동적 캐릭터의 그림자를 분리해 갱신</figcaption>
-    </figure>
-    <figure class="shot">
-      <img src="images/desert-swordtrail.jpg" alt="검광 궤적이 그려진 전투 화면">
-      <figcaption>소드 트레일. 비트마스크로 켜고 끄는 셰이더 이펙트</figcaption>
-    </figure>
+  <div class="head">
+    <h2>Rewind Survivors</h2>
+    <div class="meta">탑다운 2D 서바이버 · Unity 6 · 1인 · 2026.04 ~ 09 · WebGL 배포</div>
+    <a class="play web-only" href="https://rg7155.github.io/26UnityProject/">▶ 브라우저에서 플레이</a>
   </div>
 
-  <div class="links">
-    <a class="btn" href="https://youtu.be/k2ta_YT7tbM" target="_blank" rel="noopener">플레이 영상</a>
-    <a class="btn" href="https://github.com/rg7155/2022_GraduationProject" target="_blank" rel="noopener">GitHub</a>
-  </div>
-
-  <h3>그림자 맵을 정적과 동적으로 나눴습니다</h3>
-  <p class="muted">매 프레임 전체 깊이를 다시 기록하는 비용이 컸습니다. 렌더 타겟을 둘로 나눠
-  움직이지 않는 물체는 한 번만 기록하고, 움직이는 것만 매 프레임 갱신했습니다.</p>
-  <p class="muted">남은 문제도 있습니다. 정적 그림자 맵을 복사하는 비용은 그대로였고,
-  캐스케이드 방식으로 가는 게 맞았습니다.</p>
-  <figure class="shot" style="margin:18px 0;max-width:320px">
-    <img src="images/desert-shadowmap.jpg" alt="그림자 맵에 기록된 깊이 텍스처">
-    <figcaption>그림자 맵에 기록된 깊이 값</figcaption>
+  <figure class="figside">
+    <div class="jrow keep" style="width:74%">
+      <div class="shot" style="flex:0.566"><img src="images/rw-title.jpg" alt="타이틀 화면"><span class="no">①</span></div>
+      <div class="shot" style="flex:0.596"><img src="images/rw-crowd.jpg" alt="적이 몰려드는 세로 생존 화면"><span class="no">②</span></div>
+      <div class="shot" style="flex:0.473"><img src="images/rw-boss.jpg" alt="보스 전투 화면"><span class="no">③</span></div>
+    </div>
+    <figcaption><span class="n">①</span> 타이틀<br><span class="n">②</span> 생존 모드 전투<br>(세로 화면)<br><span class="n">③</span> 보스</figcaption>
   </figure>
 
-  <h3>파티클을 GPU로 옮겼습니다</h3>
-  <p class="muted">CPU에서 파티클을 관리하니 드로우 콜이 병목이 됐습니다. 기하 셰이더와
-  스트림 출력 버퍼를 써서 GPU가 파티클을 직접 관리하도록 옮겼고, 약 1만 개를 60 FPS로
-  처리합니다.</p>
-  <figure class="shot" style="margin:20px 0">
-    <img src="images/desert-particle.jpg" alt="GPU 파티클 9,497개가 화면을 채운 장면과 콘솔 카운터">
-    <figcaption>콘솔에 찍힌 파티클 수 9,497개 · 창 제목의 60 FPS</figcaption>
+  <p>회사에서는 Cocos2d-JS만 써서, 상용 엔진으로 끝까지 만든 게임이 없었습니다. Unity로 배포까지 해 보고, AI로 어디까지 만들 수 있는지도 알고 싶었습니다. 코드는 대부분 AI가 썼습니다.</p>
+  <p>게임은 즐겨 하던 탕탕특공대를 참고했습니다. 몰려오는 적을 피하며 버티는 게임이고, 핵심은 시간 되돌리기입니다. 위험할 때 쓰면 플레이어와 적이 5초 전 상태로 돌아갑니다.</p>
+
+  <h3>AI에게 맡겼다 실패한 탐험 모드</h3>
+  <p>생존 모드를 완성한 뒤 탐험 모드를 붙였습니다. 기획은 좁게만 정하고 나머지는 AI에게 맡겼는데, 화면이 그럴듯하게 나올 때마다 조금씩 고쳐 달라고 하다 보니 게임이 점점 이상해졌습니다.</p>
+  <ul class="dash">
+    <li>생존 모드는 세로 화면인데, 탐험은 시야가 좁아 가로로 바꿔야 했음</li>
+    <li>화면 방향이 바뀌자 UI 배치부터 다시 정해야 했음</li>
+    <li>무엇을 만들지, 아트 방향은 무엇인지 정하지 않고 시작한 게 원인</li>
+  </ul>
+
+  <figure class="figside">
+    <div class="shot" style="width:74%"><img src="images/rw-explore.jpg" alt="가로 화면으로 바꾼 탐험 모드"><span class="no">④</span></div>
+    <figcaption><span class="n">④</span> 탐험 모드<br>(가로 화면)<br><br>②의 세로 화면과 비교</figcaption>
   </figure>
 
-  <h3>셰이더 이펙트를 비트마스크로 조합했습니다</h3>
-  <p class="muted">림 라이트, 깊이 안개, 디졸브, 소드 트레일을 개별 셰이더로 만드는 대신
-  플래그로 켜고 껐습니다. 메모리를 아끼고 조합이 쉬워졌습니다.</p>
-  <div class="arcgrid" style="grid-template-columns:repeat(auto-fit,minmax(150px,1fr))">
-    <figure><img src="images/fx-rimlight.jpg" alt="림 라이트가 적용된 몬스터"><figcaption><b>림 라이트</b></figcaption></figure>
-    <figure><img src="images/fx-fog.jpg" alt="깊이에 따라 뿌옇게 처리된 원경"><figcaption><b>깊이 안개</b></figcaption></figure>
-    <figure><img src="images/fx-dissolve.jpg" alt="디졸브 처리된 몬스터"><figcaption><b>디졸브</b></figcaption></figure>
-  </div>
-
-  <details><summary>그 외 구현</summary><div class="dbody">
-    <ul>
-      <li><b>맵 충돌.</b> 오브젝트마다 충돌 처리를 하면 비용이 커져서, Unity로 충돌 전용 박스를 배치한 뒤 데이터로 불러왔습니다</li>
-      <li><b>데미지 폰트.</b> 포물선 운동 공식으로 좌표를 갱신</li>
-      <li><b>스킬 쿨타임.</b> 픽셀 셰이더에서 벡터 각도를 계산해 알파값을 조절</li>
-    </ul>
-    <div class="shots" style="margin:16px 0 0">
-      <figure class="shot">
-        <img src="images/desert-collision.jpg" alt="Unity에서 배치한 맵 충돌 전용 박스">
-        <figcaption>Unity로 배치한 맵 충돌 전용 박스. 게임에는 데이터만 실려 들어갑니다</figcaption>
-      </figure>
-      <figure class="shot">
-        <img src="images/desert-boss.jpg" alt="보스 전투 중 떠오르는 데미지 폰트">
-        <figcaption>포물선 운동으로 좌표를 갱신하는 데미지 폰트</figcaption>
-      </figure>
-    </div>
-  </div></details>
+  <p>탐험 모드는 접었고, 다음 게임인 딱지왕은 기획부터 자세히 정하고 시작했습니다.</p>
 </section>
 
+<!-- ═════════ 4쪽 딱지왕 ═════════ -->
+<section class="page" id="p4">
+  <div class="run"><span><b>4</b> &nbsp;개인 프로젝트</span><span>최경훈 포트폴리오</span></div>
 
-<section class="wrap" id="others">
-  <div class="eyebrow">개인 학습 프로젝트 · 2024 ~ 2026</div>
-  <h2>서버와 언리얼</h2>
-  <p class="lede">클라이언트 바깥을 직접 만져보려고 만든 것들</p>
-
-  <div class="proj">
-    <img src="images/iocp.jpg" alt="IOCP 채팅 서버 스트레스 테스트 화면">
-    <div>
-      <h3>Chatting Server</h3>
-      <div class="small">2025.03 ~ 04 구현 · 2026.08 개선 · C++ · IOCP · 멀티스레드</div>
-      <div class="small muted">서버 코어는 온라인 강의로 학습 · 채팅 레이어와 부하 테스트는 직접 구현</div>
-      <p class="muted">클라이언트만 만들다 보니 서버가 왜 그렇게 요구하는지 모른 채 프로토콜을
-      받아쓰고 있어서, 강의로 IOCP 코어를 익힌 뒤 전체·채널 채팅과 부하 테스트를 붙였습니다.
-      1,000 세션에서 브로드캐스트가 락을 잡은 채로 전원에게 전송하고 있는 걸 발견해,
-      락 안에서는 대상 목록만 복사하도록 바꿔 <b>락 점유를 908μs에서 29μs로</b> 줄였습니다.
-      게임 로직이 IOCP 워커 스레드에서 그대로 도는 건 한계로 남아 있습니다.</p>
-      <div class="links">
-        <a class="btn" href="https://youtu.be/bV1EJ1Bw3jA" target="_blank" rel="noopener">영상</a>
-        <a class="btn" href="https://github.com/rg7155/GameServer" target="_blank" rel="noopener">GitHub</a>
-      </div>
-    </div>
+  <div class="head">
+    <h2>딱지왕</h2>
+    <div class="meta">2D 딱지치기 점수전 · Unity 6 · 1인 · 2026.10 ~ 개발 중 · Steam 출시 목표</div>
+    <div class="meta"><a href="https://youtu.be/W_WeZbZFWYY">▶ 개발 중 영상 youtu.be/W_WeZbZFWYY</a></div>
   </div>
 
-  <div class="proj">
-    <img src="images/unseen.jpg" alt="UNSEEN Project 플레이 화면">
-    <div>
-      <h3>UNSEEN Project</h3>
-      <div class="small">2024.04 ~ 08 · Unreal Engine 5 · C++ · Gameplay Ability System</div>
-      <p class="muted">스마일게이트 UNSEEN 과정에서 배운 Gameplay Ability System으로 만든 3D 액션
-      게임입니다. 공격·스킬·점프·쉴드·판정을 능력 단위로 분리해 재사용할 수 있게 했고,
-      상점 아이템은 데이터로 정의해 기획 단계에서 능력과 가격을 조정할 수 있게 했습니다.</p>
-      <div class="links">
-        <a class="btn" href="https://youtu.be/Af5htF8ZK-8" target="_blank" rel="noopener">영상</a>
-        <a class="btn" href="https://github.com/rg7155/FDProject" target="_blank" rel="noopener">GitHub</a>
-      </div>
-    </div>
+  <figure class="web-only">
+    <iframe class="yt" data-id="W_WeZbZFWYY" title="딱지왕 개발 중 영상" allowfullscreen></iframe>
+    <figcaption>개발 중 영상 (임시 아트)</figcaption>
+  </figure>
+  <figure class="print-only">
+    <div class="ph" style="aspect-ratio:16/8"><span><b>판 화면</b>임시 아트</span></div>
+    <figcaption>판 화면 (임시 아트)</figcaption>
+  </figure>
+
+  <p>1999년 여름방학 골목을 배경으로, 딱지를 쳐서 뒤집고 연쇄로 점수를 쌓아 보스와 겨루는 게임입니다. Steam 출시를 목표로 만들고 있습니다. 지금은 첫 구역과 첫 보스까지 만들었고, 아트는 대부분 임시입니다.</p>
+
+  <h3>기획 먼저</h3>
+  <p>Rewind 때처럼 화면을 보며 고쳐 나가지 않으려고, 코드보다 게임 규칙을 먼저 문서로 정리했습니다. 방향, 범위, 조작 방식처럼 사람이 정해야 할 것은 직접 결정하고 기록했습니다.</p>
+
+  <h3>코드 대신 검증</h3>
+  <p>코드는 AI가 쓰고, 결과는 코드 검토보다 자동 테스트로 확인합니다. 테스트는 판정이 규칙 문서대로 나오는지 확인합니다. 데일리 도전과 리플레이를 하려면 같은 입력에서 항상 같은 판이 나와야 해서, 판정 규칙을 Unity와 분리했습니다.</p>
+  <p>손맛은 자동 테스트로 알 수 없어서, 직접 쳐 보는 확인이 아직 남아 있습니다.</p>
+
+  <!-- 웹 전용 상세: 내용은 md에서 확정되면 채운다
+  <details class="more web-only"><summary>자세히</summary> … </details>
+  -->
+</section>
+
+<!-- ═════════ 5쪽 의뢰인:사막 ═════════ -->
+<section class="page" id="p5">
+  <div class="run"><span><b>5</b> &nbsp;졸업 작품</span><span>최경훈 포트폴리오</span></div>
+
+  <div class="head">
+    <h2>의뢰인:사막</h2>
+    <div class="meta">3D 2인 협동 RPG · DirectX 12 · C++ · HLSL · 2인 · 2022.01 ~ 07 · 졸업 작품</div>
+    <div class="meta">담당: 렌더링, 충돌, 퀘스트, UI</div>
+    <div class="meta"><a href="https://youtu.be/k2ta_YT7tbM">▶ 영상 youtu.be/k2ta_YT7tbM</a> · <a href="https://github.com/rg7155/2022_GraduationProject">GitHub github.com/rg7155/2022_GraduationProject</a></div>
   </div>
 
-  <div class="st">
-    <div class="lb">그 전</div>
-    <div><b>웨일텍 학부 연구생</b> (2022.01 ~ 11, 11개월)<br>
-    <span class="muted">한국공학대 산학 연구실에서 UE4 Blueprint와 Sequencer로 중등 과학 교육 콘텐츠를
-    만들었습니다. 팀원 약 10명과 함께 작업했고, 언리얼을 처음 붙잡은 게 이때입니다.</span></div>
+  <h3 style="margin-top:16px">렌더링</h3>
+  <figure style="margin-top:4px">
+    <div class="jrow keep">
+      <div class="shot" style="flex:1.069"><img src="images/desert-shadowmap.jpg" alt="그림자 맵 깊이 텍스처"><span class="no">①</span></div>
+      <div class="shot" style="flex:3.313"><img src="images/desert-particle.jpg" alt="GPU 파티클이 화면을 채운 장면"><span class="no">②</span></div>
+    </div>
+    <div class="jrow keep" style="margin-top:6px">
+      <div class="shot" style="flex:0.632"><img src="images/fx-rimlight.jpg" alt="림 라이트"><span class="no">③</span></div>
+      <div class="shot" style="flex:0.858"><img src="images/fx-fog.jpg" alt="깊이 안개"></div>
+      <div class="shot" style="flex:1.422"><img src="images/fx-dissolve.jpg" alt="디졸브"></div>
+      <div class="shot" style="flex:1.553"><img src="images/desert-swordtrail.jpg" alt="소드 트레일"><span class="no">④</span></div>
+    </div>
+    <figcaption><span class="n">①</span> 그림자 맵 &nbsp;<span class="n">②</span> GPU 파티클 &nbsp;<span class="n">③</span> 림 라이트 · 깊이 안개 · 디졸브 &nbsp;<span class="n">④</span> 소드 트레일</figcaption>
+  </figure>
+
+  <ul class="notes">
+    <li><span>①</span><span>그림자 맵을 정적과 동적으로 나눠, 움직이지 않는 물체는 한 번만 기록함. 정적 맵을 복사하는 비용은 남았고, 지금 보면 캐스케이드 방식이 맞았음</span></li>
+    <li><span>②</span><span>기하 셰이더와 스트림 출력으로 파티클 10,000개 이상을 GPU에서 관리</span></li>
+    <li><span></span><span>같은 파이프라인 상태를 쓰는 물체를 묶어 상태 변경 횟수를 줄임</span></li>
+    <li><span>③</span><span>림 라이트, 깊이 안개, 디졸브를 비트마스크로 켜고 끔</span></li>
+    <li><span>④</span><span>칼 손잡이와 칼끝 좌표를 매 프레임 기록하고, Catmull-Rom 보간으로 이어 소드 트레일을 그림</span></li>
+  </ul>
+
+  <h3>맵 충돌</h3>
+  <div class="jrow side" style="gap:14px">
+    <div style="width:62%">
+      <p>맵은 Unity에서 배치해 파일로 내보내고, C++에서 읽어 씬을 구성했습니다. 플레이어와 맵의 충돌 방식은 세 번 바꿨습니다.</p>
+      <ol class="steps">
+        <li><span>①</span><span>맵 메시 전체와 OBB 충돌: 빠르지만 세밀하지 않음</span></li>
+        <li><span>②</span><span>맵 메시 전체와 구 충돌: 세밀하지만 프레임이 떨어짐</span></li>
+        <li><span>③</span><span>충돌 전용 박스를 따로 배치해 OBB 충돌: 검사 수가 줄어 빠르고 적당히 세밀함. 대신 박스를 일일이 배치해야 함</span></li>
+      </ol>
+    </div>
+    <figure style="width:38%;margin:2px 0 0">
+      <div class="shot"><img src="images/desert-collision.jpg" alt="Unity에서 배치한 맵 충돌 전용 박스"><span class="no">③</span></div>
+      <figcaption><span class="n">③</span> Unity에서 배치한 충돌 전용 박스</figcaption>
+    </figure>
   </div>
 </section>
 
-<section class="wrap" id="archive">
-  <div class="eyebrow">아카이브</div>
-  <h2>학부 · 게임 아카데미 시절</h2>
-  <p class="muted">2020~2021년 작업물입니다. 자체 엔진과 상용 엔진을 오가며 기본기를 익혔습니다.</p>
+<!-- ═════════ 6쪽 그 외 ═════════ -->
+<section class="page" id="p6">
+  <div class="run"><span><b>6</b> &nbsp;그 외 프로젝트와 기술 스택</span><span>최경훈 포트폴리오</span></div>
 
-  <details><summary>프로젝트 8종 보기</summary><div class="dbody">
-    <div class="arcgrid">
-      <figure><img src="images/arc-2v2fight.jpg" alt="2 vs 2 Fight"><figcaption><b>2 vs 2 Fight</b><br>2021.11 · WinAPI · TCP · 3인</figcaption></figure>
-      <figure><img src="images/arc-monsterrush.jpg" alt="Monster Rush"><figcaption><b>Monster Rush</b><br>2021.09 · Unity · 3인</figcaption></figure>
-      <figure><img src="images/arc-escapethetrain.jpg" alt="Escape the Train"><figcaption><b>Escape the Train</b><br>2021.04 · Unity · 3인</figcaption></figure>
-      <figure><img src="images/arc-raji.jpg" alt="Raji 모작"><figcaption><b>Raji 모작</b><br>2020.12 · DirectX 9 · 5인</figcaption></figure>
-      <figure><img src="images/arc-dungeondefenders.jpg" alt="Dungeon Defenders 모작"><figcaption><b>Dungeon Defenders 모작</b><br>2020.11 · DirectX 9 · 1인</figcaption></figure>
-      <figure><img src="images/arc-ionfury.jpg" alt="Ion Fury 모작"><figcaption><b>Ion Fury 모작</b><br>2020.08 · DirectX 9 · 4인</figcaption></figure>
-      <figure><img src="images/arc-dungreed.jpg" alt="Dungreed 모작"><figcaption><b>Dungreed 모작</b><br>2020.07 · DirectX 9 · 1인</figcaption></figure>
-      <figure><img src="images/arc-wizardoflegend.jpg" alt="Wizard of Legend 모작"><figcaption><b>Wizard of Legend 모작</b><br>2020.05 · WinAPI · 1인</figcaption></figure>
-    </div>
-  </div></details>
+  <h3>그 외 프로젝트</h3>
+  <div class="scroll-x">
+  <table>
+    <thead><tr><th>프로젝트</th><th class="nw">시기</th><th>환경</th><th class="nw">인원</th><th>메모</th><th>링크</th></tr></thead>
+    <tbody>
+      <tr><td>Chatting Server</td><td class="nw">2025.03 ~ 04</td><td>C++ · IOCP</td><td class="nw">1인</td><td>강의 기반 학습</td><td class="lk"><a href="https://youtu.be/bV1EJ1Bw3jA">영상</a> · <a href="https://github.com/rg7155/GameServer">GitHub</a></td></tr>
+      <tr><td>UNSEEN Project</td><td class="nw">2024.04 ~ 08</td><td>UE5 · C++ · GAS</td><td class="nw">1인</td><td>UNSEEN 과정에서 배운 GAS로 제작</td><td class="lk"><a href="https://youtu.be/Af5htF8ZK-8">영상</a> · <a href="https://github.com/rg7155/FDProject">GitHub</a></td></tr>
+      <tr><td>2 vs 2 Fight</td><td class="nw">2021.11 ~ 12</td><td>WinAPI · TCP · C++</td><td class="nw">3인</td><td>스레드 동기화, 충돌, 송수신 담당</td><td class="lk"><a href="https://youtu.be/jPB3gEHn_64">영상</a> · <a href="https://github.com/sungzzuu/2021NGP_VTM">GitHub</a></td></tr>
+      <tr><td>Monster Rush</td><td class="nw">2021.09 ~ 12</td><td>Unity · C#</td><td class="nw">3인</td><td></td><td class="lk"><a href="https://github.com/rg7155/2022KPU_GameProject">GitHub</a></td></tr>
+      <tr><td>Escape the Train</td><td class="nw">2021.04 ~ 06</td><td>Unity · C#</td><td class="nw">3인</td><td></td><td class="lk"><a href="https://youtu.be/DhdvpvreUb4">영상</a> · <a href="https://bitbucket.org/unity10team/escapethetrain/src/master/">Bitbucket</a></td></tr>
+      <tr><td>Raji 모작</td><td class="nw">2020.12 ~ 2021.02</td><td>DirectX 9 · C++</td><td class="nw">5인</td><td>플레이어, 보스 담당</td><td class="lk"><a href="https://youtu.be/K_kDTJUfeHo">영상</a></td></tr>
+      <tr><td>Dungeon Defenders 모작</td><td class="nw">2020.11 ~ 12</td><td>DirectX 9 · C++ · MFC</td><td class="nw">1인</td><td></td><td class="lk"><a href="https://youtu.be/l5kxw9giyhs">영상</a></td></tr>
+      <tr><td>Ion Fury 모작</td><td class="nw">2020.08 ~ 09</td><td>DirectX 9 · C++ · MFC</td><td class="nw">4인</td><td></td><td class="lk"><a href="https://youtu.be/dWHveqQ-nOs">영상</a></td></tr>
+      <tr><td>Dungreed 모작</td><td class="nw">2020.07</td><td>DirectX 9 · C++ · MFC</td><td class="nw">1인</td><td></td><td class="lk"><a href="https://youtu.be/4MFrCA35gSY">영상</a></td></tr>
+      <tr><td>Wizard of Legend 모작</td><td class="nw">2020.05 ~ 06</td><td>WinAPI · C++</td><td class="nw">1인</td><td></td><td class="lk"><a href="https://youtu.be/dsnQ50NIry0">영상</a></td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <details class="more web-only" id="vids">
+    <summary>영상 모아 보기</summary>
+    <div class="vids"></div>
+  </details>
+
+  <h3 style="margin-top:22px">기술 스택</h3>
+  <table class="stack">
+    <tbody>
+      <tr><th>실무</th><td>Cocos2d-JS · JavaScript · C++ (엔진 코드 분석) · Git</td></tr>
+      <tr><th>개인 프로젝트</th><td>Unity 6 · C# / DirectX 12 · 9 · C++ · HLSL / Unreal Engine 5</td></tr>
+      <tr><th>AI 도구</th><td>Claude Code · Codex</td></tr>
+    </tbody>
+  </table>
 </section>
-
-
-<footer class="wrap">
-  최경훈 · <a href="mailto:kh7155@gmail.com">kh7155@gmail.com</a> ·
-  <a href="https://github.com/rg7155" target="_blank" rel="noopener">github.com/rg7155</a>
-</footer>
 
 <script>
-// 인쇄·PDF 저장 시 접이식을 전부 펼친다. 안 그러면 안에 담긴 내용이 통째로 빠진다.
-(function () {
-  var reclose = [];
-  addEventListener('beforeprint', function () {
-    reclose = [].slice.call(document.querySelectorAll('details:not([open])'));
-    reclose.forEach(function (d) { d.open = true; });
-  });
-  addEventListener('afterprint', function () {
-    reclose.forEach(function (d) { d.open = false; });
-    reclose = [];
+document.querySelectorAll("iframe.yt").forEach(function(f){f.referrerPolicy="strict-origin-when-cross-origin";f.loading="lazy";f.src="https://www.youtube-nocookie.com/embed/"+f.dataset.id;});
+// 영상은 접이식을 처음 열 때만 불러온다 (인쇄판에는 나오지 않음)
+(function(){
+  var d=document.getElementById('vids'); if(!d) return;
+  d.addEventListener('toggle',function(){
+    if(!d.open||d.dataset.done) return; d.dataset.done=1;
+    var box=d.querySelector('.vids');
+    document.querySelectorAll('#p6 tbody tr').forEach(function(tr){
+      var a=tr.querySelector('a[href*="youtu.be/"]'); if(!a) return;
+      var id=a.href.split('youtu.be/')[1];
+      var w=document.createElement('div');
+      var f=document.createElement('iframe');
+      f.src='https://www.youtube-nocookie.com/embed/'+id; f.loading='lazy';
+      f.title=tr.cells[0].textContent; f.allowFullscreen=true; f.referrerPolicy='strict-origin-when-cross-origin';
+      f.allow='accelerometer; encrypted-media; picture-in-picture';
+      w.appendChild(f); w.appendChild(document.createTextNode(tr.cells[0].textContent));
+      box.appendChild(w);
+    });
   });
 })();
 </script>
-
 </body>
 </html>
