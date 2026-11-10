@@ -85,7 +85,10 @@ table.stack th{width:7.5em;font-weight:600;color:var(--tx2);border-bottom:1px so
 .cover .lead{font-size:14.5pt;font-weight:600;line-height:1.5;margin:26mm 0 8mm;max-width:172mm;letter-spacing:-.01em}
 .cover .intro{max-width:150mm;font-size:10pt}
 .cover .contact{margin-top:10mm;font-size:9pt;color:var(--tx2);display:flex;flex-wrap:wrap;gap:4px 16px}
-.toc{margin-top:30mm;max-width:150mm}
+.stack1{margin-top:16mm;max-width:150mm}
+.stack1 table.stack{font-size:9pt}
+.stack1 table.stack th{border-bottom:1px solid var(--line)}
+.toc{margin-top:12mm;max-width:150mm}
 .toc-t{font-size:10pt;font-weight:700;padding-bottom:5px;border-bottom:1.5px solid var(--tx)}
 .toc .grp{display:flex;gap:16px;padding:9px 0;border-bottom:1px solid var(--line)}
 .toc .grp > span{flex:none;width:4.5em;color:var(--tx3);font-size:8.6pt;padding-top:1px}
@@ -119,7 +122,8 @@ iframe.yt{display:block;width:100%;aspect-ratio:16/9;border:0;background:#111}
   .page{width:auto;margin:0;padding:28px 16px 34px;box-shadow:none;border-bottom:8px solid #eee}
   .cover{padding-top:12px}
   .cover .lead{margin:28px 0 16px;font-size:13pt}
-  .toc{margin-top:28px}
+  .stack1{margin-top:28px}
+  .toc{margin-top:24px}
   .jrow{flex-wrap:wrap}
   .jrow.keep{flex-wrap:nowrap}
   .side{flex-direction:column}
@@ -162,6 +166,17 @@ iframe.yt{display:block;width:100%;aspect-ratio:16/9;border:0;background:#111}
     <a href="https://rg7155.github.io/26UnityProject/">▶ Rewind Survivors 플레이</a>
   </div>
 
+  <div class="stack1">
+    <div class="toc-t">기술 스택</div>
+    <table class="stack">
+      <tbody>
+        <tr><th>실무</th><td>Cocos2d-JS · JavaScript · C++ (엔진 코드 분석) · Git</td></tr>
+        <tr><th>개인 프로젝트</th><td>Unity 6 · C# / DirectX 12 · 9 · C++ · HLSL / Unreal Engine 5</td></tr>
+        <tr><th>AI 도구</th><td>Claude Code · Codex</td></tr>
+      </tbody>
+    </table>
+  </div>
+
   <nav class="toc">
     <div class="toc-t">목차</div>
     <div class="grp"><span>자세히</span>
@@ -174,7 +189,7 @@ iframe.yt{display:block;width:100%;aspect-ratio:16/9;border:0;background:#111}
     </div>
     <div class="grp"><span>간단히</span>
       <ul>
-        <li><a href="#p6">그 외 프로젝트와 기술 스택</a><i>6</i></li>
+        <li><a href="#p6">그 외 프로젝트</a><i>6</i></li>
       </ul>
     </div>
   </nav>
@@ -200,12 +215,13 @@ iframe.yt{display:block;width:100%;aspect-ratio:16/9;border:0;background:#111}
   <p>신규 슬롯과 함께, 오래된 슬롯의 룰을 조금 바꾸고 코드를 공용 모듈로 옮기는 리워크도 맡습니다.</p>
 
   <h3>이슈 해결: 웹에서만 다른 이미지가 나오던 문제</h3>
-  <p>에러도 로그도 없던 팀 이슈였고, 팀에서 가장 먼저 원인을 찾아 공유했습니다.</p>
+  <p>엔진은 이미지를 이름 하나로 관리해서, 이름이 겹치면 먼저 등록된 쪽을 쓰고 아무것도 알려 주지 않습니다. 예전에 웹 리소스 안의 이름 중복으로 비슷한 문제를 겪었는데, 그때는 원인을 팀에 공유하지 않았습니다.</p>
   <ul class="dash">
     <li>웹에서만 엉뚱한 이미지가 나옴. 에러도 로그도 없음</li>
-    <li>이름이 겹치면 먼저 등록된 이미지를 쓰는 엔진 동작을 의심했지만, 웹 리소스에는 중복이 없음</li>
+    <li>예전 일을 떠올려 이름 중복부터 의심했지만, 웹 리소스에는 중복이 없음</li>
     <li>엔진에 로그를 넣어 실제로 불러오는 리소스를 출력</li>
-    <li>공통 시스템 코드가 웹에서 모바일 리소스까지 불러오고 있었고, 중복은 그쪽에 있었음</li>
+    <li>공통 시스템 코드가 웹에서 모바일 리소스까지 불러오고 있었고, 모바일 아틀라스에 같은 이름의 이미지가 있었음</li>
+    <li>겹치는 이름을 고쳐 해결하고, 이번에는 원인을 바로 팀에 공유함</li>
   </ul>
 </section>
 
@@ -220,31 +236,36 @@ iframe.yt{display:block;width:100%;aspect-ratio:16/9;border:0;background:#111}
   </div>
 
   <figure class="figside">
-    <div class="jrow keep" style="width:74%">
+    <div class="jrow keep" style="width:66%">
       <div class="shot" style="flex:0.566"><img src="images/rw-title.jpg" alt="타이틀 화면"><span class="no">①</span></div>
       <div class="shot" style="flex:0.596"><img src="images/rw-crowd.jpg" alt="적이 몰려드는 세로 생존 화면"><span class="no">②</span></div>
       <div class="shot" style="flex:0.473"><img src="images/rw-boss.jpg" alt="보스 전투 화면"><span class="no">③</span></div>
     </div>
-    <figcaption><span class="n">①</span> 타이틀<br><span class="n">②</span> 생존 모드 전투<br>(세로 화면)<br><span class="n">③</span> 보스</figcaption>
+    <figcaption><span class="n">①</span> 타이틀<br><span class="n">②</span> 생존 모드 부하 시험<br>(세로 화면, 적 1,930)<br><span class="n">③</span> 보스</figcaption>
   </figure>
 
   <p>회사에서는 Cocos2d-JS만 써서, 상용 엔진으로 끝까지 만든 게임이 없었습니다. Unity로 배포까지 해 보고, AI로 어디까지 만들 수 있는지도 알고 싶었습니다. 코드는 대부분 AI가 썼습니다.</p>
-  <p>게임은 즐겨 하던 탕탕특공대를 참고했습니다. 몰려오는 적을 피하며 버티는 게임이고, 핵심은 시간 되돌리기입니다. 위험할 때 쓰면 플레이어와 적이 5초 전 상태로 돌아갑니다.</p>
-
-  <h3>AI에게 맡겼다 실패한 탐험 모드</h3>
-  <p>생존 모드를 완성한 뒤 탐험 모드를 붙였습니다. 기획은 좁게만 정하고 나머지는 AI에게 맡겼는데, 화면이 그럴듯하게 나올 때마다 조금씩 고쳐 달라고 하다 보니 게임이 점점 이상해졌습니다.</p>
   <ul class="dash">
-    <li>생존 모드는 세로 화면인데, 탐험은 시야가 좁아 가로로 바꿔야 했음</li>
-    <li>화면 방향이 바뀌자 UI 배치부터 다시 정해야 했음</li>
-    <li>무엇을 만들지, 아트 방향은 무엇인지 정하지 않고 시작한 게 원인</li>
+    <li><b>장르:</b> 몰려오는 적을 피하며 버티는 서바이버. 즐겨 하던 탕탕특공대를 참고</li>
+    <li><b>핵심:</b> 시간 되돌리기. 위험할 때 쓰면 플레이어와 적이 5초 전 상태로 돌아감</li>
   </ul>
 
+  <h3>시간 되돌리기: 풀에서 다시 꺼낸 적을 구분하기</h3>
+  <p>0.05초마다 플레이어, 적, 웨이브, 보스 상태를 기록해 두고, 되돌릴 때 최신 기록부터 거꾸로 적용합니다. 기록은 100칸짜리 원형 버퍼에 담아, 오래 플레이해도 칸이 늘지 않게 했습니다.</p>
+  <p>문제는 적을 오브젝트 풀로 재사용한다는 점이었습니다. 풀에서 다시 꺼낸 적은 5초 전과 같은 오브젝트지만 다른 적입니다. 기록을 그대로 덮으면 죽은 적의 상태가 엉뚱한 적에게 씌워집니다.</p>
+  <ul class="dash">
+    <li>적이 생길 때마다 새 ID를 주고, 기록도 ID로 남김</li>
+    <li>되돌릴 때 ID를 비교해 셋으로 나눔. 양쪽에 있으면 상태만 복원, 기록에만 있으면 부활, 지금만 있으면 풀로 반환</li>
+    <li>같은 구조에 보스의 패턴 순서와 체력도 얹음</li>
+  </ul>
+
+  <h3>AI에게 맡겼다 실패한 탐험 모드</h3>
+  <p>생존 모드를 완성한 뒤 탐험 모드를 붙였습니다. 기획은 얕게만 정하고 나머지는 AI에게 맡겼는데, 화면이 그럴듯하게 나올 때마다 조금씩 고쳐 달라고 하다 보니 게임이 점점 이상해졌습니다. 시야가 좁아 세로 화면을 가로로 바꿨고, UI 배치도 처음부터 다시 정해야 했습니다. 무엇을 만들지, 아트 방향은 무엇인지 정하지 않고 시작한 게 원인이었고, 탐험 모드는 접었습니다.</p>
+
   <figure class="figside">
-    <div class="shot" style="width:74%"><img src="images/rw-explore.jpg" alt="가로 화면으로 바꾼 탐험 모드"><span class="no">④</span></div>
+    <div class="shot" style="width:50%"><img src="images/rw-explore.jpg" alt="가로 화면으로 바꾼 탐험 모드"><span class="no">④</span></div>
     <figcaption><span class="n">④</span> 탐험 모드<br>(가로 화면)<br><br>②의 세로 화면과 비교</figcaption>
   </figure>
-
-  <p>탐험 모드는 접었고, 다음 게임인 딱지왕은 기획부터 자세히 정하고 시작했습니다.</p>
 </section>
 
 <!-- ═════════ 4쪽 딱지왕 ═════════ -->
@@ -261,19 +282,35 @@ iframe.yt{display:block;width:100%;aspect-ratio:16/9;border:0;background:#111}
     <iframe class="yt" data-id="W_WeZbZFWYY" title="딱지왕 개발 중 영상" allowfullscreen></iframe>
     <figcaption>개발 중 영상 (임시 아트)</figcaption>
   </figure>
-  <figure class="print-only">
-    <div class="ph" style="aspect-ratio:16/8"><span><b>판 화면</b>임시 아트</span></div>
-    <figcaption>판 화면 (임시 아트)</figcaption>
+  <figure class="print-only figside">
+    <div class="shot" style="width:74%"><img src="images/dj-board.jpg" alt="보스 결투 판 화면"></div>
+    <figcaption>보스 결투 판 화면<br>(임시 아트,<br>테스트 빌드)</figcaption>
   </figure>
 
-  <p>1999년 여름방학 골목을 배경으로, 딱지를 쳐서 뒤집고 연쇄로 점수를 쌓아 보스와 겨루는 게임입니다. Steam 출시를 목표로 만들고 있습니다. 지금은 첫 구역과 첫 보스까지 만들었고, 아트는 대부분 임시입니다.</p>
+  <ul class="dash">
+    <li><b>배경:</b> 1999년 여름방학 골목</li>
+    <li><b>게임:</b> 딱지를 쳐서 뒤집고, 연쇄로 점수를 쌓아 보스와 겨룸</li>
+    <li><b>진행:</b> 첫 구역과 첫 보스까지 완성. 아트는 대부분 임시. Steam 출시 목표</li>
+  </ul>
 
   <h3>기획 먼저</h3>
-  <p>Rewind 때처럼 화면을 보며 고쳐 나가지 않으려고, 코드보다 게임 규칙을 먼저 문서로 정리했습니다. 방향, 범위, 조작 방식처럼 사람이 정해야 할 것은 직접 결정하고 기록했습니다.</p>
+  <p>Rewind의 탐험 모드처럼 화면을 보며 고쳐 나가다 실패하지 않으려고, 코드보다 게임 규칙을 먼저 문서로 정리했습니다. 방향, 범위, 조작 방식처럼 사람이 정해야 할 것은 직접 결정하고 기록했습니다.</p>
 
   <h3>코드 대신 검증</h3>
-  <p>코드는 AI가 쓰고, 결과는 코드 검토보다 자동 테스트로 확인합니다. 테스트는 판정이 규칙 문서대로 나오는지 확인합니다. 데일리 도전과 리플레이를 하려면 같은 입력에서 항상 같은 판이 나와야 해서, 판정 규칙을 Unity와 분리했습니다.</p>
-  <p>손맛은 자동 테스트로 알 수 없어서, 직접 쳐 보는 확인이 아직 남아 있습니다.</p>
+  <p>코드는 AI가 쓰고, 결과는 코드 검토보다 자동 테스트로 확인합니다.</p>
+  <ul class="dash">
+    <li><b>테스트:</b> 판정이 규칙 문서대로 나오는지 확인</li>
+    <li><b>같은 판 재현:</b> 데일리 도전과 리플레이는 같은 입력에서 항상 같은 판이 나와야 함. 그래서 판정 규칙을 Unity와 분리하고 정수로만 계산</li>
+  </ul>
+
+  <h3>직접 플레이해 보고 뺀 규칙</h3>
+  <p>AI와 함께 쓴 기획서에는 벽에 막힌 바람이 튕겨 나와 딱지를 뒤집는 벽 반사 규칙이 있었습니다. 구현까지 했지만, 직접 플레이해 보니 반사가 일어나는 걸 알고 봐도 눈에 띄지 않았습니다.</p>
+  <ul class="dash">
+    <li>AI에게 원인을 분석하게 하니, 실제 딱지치기에 없는 개념이라 화면에 단서가 없고 효과도 작고 드물었음</li>
+    <li>규칙의 출처를 찾아보니 AI가 쓴 기획서 초안뿐이었고, 제가 결정한 기록은 없었음</li>
+    <li>규칙을 빼고 규칙 문서, 판정 기준, 게임 코드를 함께 정리함. 예전 기록이 다르게 재생되므로 기록 버전을 올림</li>
+  </ul>
+  <p>비슷한 아이디어도 재미를 확인하기 전에는 만들지 않고 후보로만 남겼습니다. 손맛처럼 자동 테스트로 알 수 없는 것은 계속 직접 플레이하며 확인합니다.</p>
 
   <!-- 웹 전용 상세: 내용은 md에서 확정되면 채운다
   <details class="more web-only"><summary>자세히</summary> … </details>
@@ -307,8 +344,8 @@ iframe.yt{display:block;width:100%;aspect-ratio:16/9;border:0;background:#111}
   </figure>
 
   <ul class="notes">
-    <li><span>①</span><span>그림자 맵을 정적과 동적으로 나눠, 움직이지 않는 물체는 한 번만 기록함. 정적 맵을 복사하는 비용은 남았고, 지금 보면 캐스케이드 방식이 맞았음</span></li>
-    <li><span>②</span><span>기하 셰이더와 스트림 출력으로 파티클 10,000개 이상을 GPU에서 관리</span></li>
+    <li><span>①</span><span>그림자 맵을 정적과 동적으로 나눠, 움직이지 않는 물체는 한 번만 기록함. 대신 정적 맵을 복사하는 비용은 남았음</span></li>
+    <li><span>②</span><span>기하 셰이더와 스트림 출력으로 파티클 약 1만 개를 GPU에서 관리</span></li>
     <li><span></span><span>같은 파이프라인 상태를 쓰는 물체를 묶어 상태 변경 횟수를 줄임</span></li>
     <li><span>③</span><span>림 라이트, 깊이 안개, 디졸브를 비트마스크로 켜고 끔</span></li>
     <li><span>④</span><span>칼 손잡이와 칼끝 좌표를 매 프레임 기록하고, Catmull-Rom 보간으로 이어 소드 트레일을 그림</span></li>
@@ -319,8 +356,8 @@ iframe.yt{display:block;width:100%;aspect-ratio:16/9;border:0;background:#111}
     <div style="width:62%">
       <p>맵은 Unity에서 배치해 파일로 내보내고, C++에서 읽어 씬을 구성했습니다. 플레이어와 맵의 충돌 방식은 세 번 바꿨습니다.</p>
       <ol class="steps">
-        <li><span>①</span><span>맵 메시 전체와 OBB 충돌: 빠르지만 세밀하지 않음</span></li>
-        <li><span>②</span><span>맵 메시 전체와 구 충돌: 세밀하지만 프레임이 떨어짐</span></li>
+        <li><span>①</span><span>맵 메시를 감싸는 OBB와 충돌: 빠르지만 메시 모양과 달라 세밀하지 않음</span></li>
+        <li><span>②</span><span>맵 메시 표면(삼각형)과 구 충돌: 세밀하지만 검사가 많아 프레임이 떨어짐</span></li>
         <li><span>③</span><span>충돌 전용 박스를 따로 배치해 OBB 충돌: 검사 수가 줄어 빠르고 적당히 세밀함. 대신 박스를 일일이 배치해야 함</span></li>
       </ol>
     </div>
@@ -333,7 +370,7 @@ iframe.yt{display:block;width:100%;aspect-ratio:16/9;border:0;background:#111}
 
 <!-- ═════════ 6쪽 그 외 ═════════ -->
 <section class="page" id="p6">
-  <div class="run"><span><b>6</b> &nbsp;그 외 프로젝트와 기술 스택</span><span>최경훈 포트폴리오</span></div>
+  <div class="run"><span><b>6</b> &nbsp;그 외 프로젝트</span><span>최경훈 포트폴리오</span></div>
 
   <h3>그 외 프로젝트</h3>
   <div class="scroll-x">
@@ -359,14 +396,6 @@ iframe.yt{display:block;width:100%;aspect-ratio:16/9;border:0;background:#111}
     <div class="vids"></div>
   </details>
 
-  <h3 style="margin-top:22px">기술 스택</h3>
-  <table class="stack">
-    <tbody>
-      <tr><th>실무</th><td>Cocos2d-JS · JavaScript · C++ (엔진 코드 분석) · Git</td></tr>
-      <tr><th>개인 프로젝트</th><td>Unity 6 · C# / DirectX 12 · 9 · C++ · HLSL / Unreal Engine 5</td></tr>
-      <tr><th>AI 도구</th><td>Claude Code · Codex</td></tr>
-    </tbody>
-  </table>
 </section>
 
 <script>
