@@ -59,6 +59,9 @@ figcaption .n{color:var(--tx);font-weight:600;margin-right:2px}
 .figside figcaption{flex:1;margin:0;padding-bottom:2px}
 svg.dia{display:block;width:100%;height:auto}
 svg.dia text{font-family:"Pretendard","Malgun Gothic",sans-serif;fill:var(--tx)}
+figure.flow{margin:12px 0 14px}
+svg.dia .sub text{fill:var(--tx2)}
+svg.dia .wk text{fill:var(--tx3)}
 
 /* ── 목록·표 ──────────────────────────────────── */
 ol.steps{list-style:none;margin:4px 0 8px;padding:0}
@@ -207,21 +210,48 @@ iframe.yt{display:block;width:100%;aspect-ratio:16/9;border:0;background:#111}
   </div>
 
   <h3 style="margin-top:18px">슬롯 개발 방식</h3>
-  <p>프로젝트 규칙과 슬롯 도메인 지식을 문서로 쌓아 두고, 코드를 쓰기 전에 AI가 기획서와 아트 리소스, 서버 코드를 먼저 대조하게 합니다. AI가 모르는 새 기획 요소는 제가 판단해서 문서에 더합니다. 슬롯 하나는 보통 8주에 만듭니다.</p>
-  <ul class="dash">
-    <li><b>1~4주:</b> 사전 검증으로 리소스 오타, 공용 모듈과 맞지 않는 리소스, 빠진 연출을 거른 뒤 개발. 코드는 대부분 AI가 작성</li>
-    <li><b>5~8주:</b> 기획·아트·QA·서버 5~10명이 모이는 개선 회의 약 3회. 연출과 아트 피드백을 반영하고, 룰이 바뀌면 개발 가능 여부를 확인. 이후 QA를 거쳐 라이브 출시</li>
-  </ul>
+  <p>프로젝트 규칙과 슬롯 도메인 지식을 문서로 쌓아 두고, 코드를 쓰기 전에 AI가 기획서와 아트 리소스, 서버 코드를 먼저 대조하게 합니다. AI가 모르는 새 기획 요소는 제가 판단해서 문서에 추가합니다.</p>
+  <p>슬롯 하나는 보통 8주 동안 만듭니다. 사전 검증에서는 리소스 오타나 기획 오류를 개발 전에 찾아 해결합니다. 개선 회의에서는 연출과 아트 피드백을 반영하고, 룰이 바뀌면 개발 가능 여부를 확인합니다. 회의에서 직접 아이디어도 냅니다. 코드는 대부분 AI가 작성합니다.</p>
+  <figure class="flow">
+    <svg class="dia" viewBox="0 0 680 150" role="img" aria-label="슬롯 하나의 개발 흐름: 사전 검증, 개발(1~4주), 개선 회의 3번, QA, 라이브 출시(5~8주)">
+      <defs><marker id="ar" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#7c7c7c"/></marker></defs>
+      <g font-size="14" font-weight="600" text-anchor="middle">
+        <rect x="0" y="8" width="112" height="40" rx="3" fill="#f5f5f3" stroke="#bdbdbd"/><text x="56" y="33">사전 검증</text>
+        <rect x="140" y="8" width="112" height="40" rx="3" fill="#f5f5f3" stroke="#bdbdbd"/><text x="196" y="33">개발</text>
+        <rect x="280" y="8" width="112" height="40" rx="3" fill="#fff" stroke="#1d4d7a" stroke-width="1.5"/><text x="336" y="33">개선 회의 3번</text>
+        <rect x="420" y="8" width="112" height="40" rx="3" fill="#f5f5f3" stroke="#bdbdbd"/><text x="476" y="33">QA</text>
+        <rect x="560" y="8" width="112" height="40" rx="3" fill="#f5f5f3" stroke="#bdbdbd"/><text x="616" y="33">라이브 출시</text>
+      </g>
+      <g stroke="#7c7c7c" stroke-width="1.3" marker-end="url(#ar)">
+        <line x1="114" y1="28" x2="137" y2="28"/><line x1="254" y1="28" x2="277" y2="28"/>
+        <line x1="394" y1="28" x2="417" y2="28"/><line x1="534" y1="28" x2="557" y2="28"/>
+      </g>
+      <g class="sub" font-size="11.5" text-anchor="middle">
+        <text x="56" y="67">기획서·리소스 대조</text>
+        <text x="196" y="67">게임 로직·연출</text>
+        <text x="336" y="67">기획·아트·연출·QA</text><text x="336" y="82">서버·사운드·PD</text><text x="336" y="97">5~10명</text>
+        <text x="476" y="67">검수</text>
+        <text x="616" y="67">라이브 서비스</text>
+      </g>
+      <g stroke="#9a9a9a" stroke-width="1" fill="none">
+        <path d="M2,114 v6 h248 v-6"/><path d="M282,114 v6 h388 v-6"/>
+      </g>
+      <g class="wk" font-size="12" text-anchor="middle">
+        <text x="126" y="138">1~4주</text><text x="476" y="138">5~8주</text>
+      </g>
+    </svg>
+    <figcaption>슬롯 하나의 개발 흐름. 슬롯마다 반복</figcaption>
+  </figure>
   <p>신규 슬롯과 함께, 오래된 슬롯의 룰을 조금 바꾸고 코드를 공용 모듈로 옮기는 리워크도 맡습니다.</p>
 
   <h3>이슈 해결: 웹에서만 다른 이미지가 나오던 문제</h3>
-  <p>엔진은 이미지를 이름 하나로 관리해서, 이름이 겹치면 먼저 등록된 쪽을 쓰고 아무것도 알려 주지 않습니다. 예전에 웹 리소스 안의 이름 중복으로 비슷한 문제를 겪었는데, 그때는 원인을 팀에 공유하지 않았습니다.</p>
+  <p>AI를 쓰기 전, 팀원이 막힌 이슈를 처음으로 제가 풀어 준 일이라 기억에 남습니다.</p>
   <ul class="dash">
     <li>웹에서만 엉뚱한 이미지가 나옴. 에러도 로그도 없음</li>
-    <li>예전 일을 떠올려 이름 중복부터 의심했지만, 웹 리소스에는 중복이 없음</li>
+    <li>엔진은 이미지를 이름 하나로 관리해서, 이름이 겹치면 먼저 등록된 쪽을 씀. 그래서 이름 중복부터 의심했지만 웹 리소스에는 중복이 없음</li>
     <li>엔진에 로그를 넣어 실제로 불러오는 리소스를 출력</li>
     <li>공통 시스템 코드가 웹에서 모바일 리소스까지 불러오고 있었고, 모바일 아틀라스에 같은 이름의 이미지가 있었음</li>
-    <li>겹치는 이름을 고쳐 해결하고, 이번에는 원인을 바로 팀에 공유함</li>
+    <li>겹치는 이름을 고쳐 해결하고, 원인을 팀에 바로 공유함</li>
   </ul>
 </section>
 
